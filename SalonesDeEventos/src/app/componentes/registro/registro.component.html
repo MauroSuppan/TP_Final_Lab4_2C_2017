@@ -1,0 +1,28 @@
+<div id="id01" class="modal">
+  <span  routerLink="/Login" class="close" title="Close Modal">×</span>
+  <form class="modal-content animate" >
+    <div class="container">
+
+        <label><b>Nombre</b></label>
+        <input type="text" placeholder="Ingrese nombre" [(ngModel)]="nombre" name="nombre" required>
+
+      <label><b>Usuario</b></label>
+      <input type="text" placeholder="Ingrese usuario" [(ngModel)]="usuario" name="usuario" required>
+
+      <label><b>Correo</b></label>
+      <input type="text" placeholder="Ingrese correo" [(ngModel)]="correo" name="correo" required>
+
+      <label><b>Clave</b></label>
+      <input type="password" placeholder="Ingrese clave" [(ngModel)]="clave" name="psw" required>
+
+      <label><b>Repita la clave</b></label>
+      <input type="password" placeholder="Repita la misma clave que arriba" [(ngModel)]="claveRep" name="psw-repeat" required>
+      
+
+      <div class="clearfix">
+        <button type="button"  routerLink="/Login" class="cancelbtn">Me arrepenti</button>
+        <button type="button" (click)="Registrar()" class="signupbtn">Registrarme</button>
+      </div>
+    </div>
+  </form>
+</div>

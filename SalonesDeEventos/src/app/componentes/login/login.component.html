@@ -1,0 +1,56 @@
+<head> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+                   
+
+                   
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pr-wrap">
+                    <div class="pass-reset">
+                        <label>
+                            Enter the email you signed up with</label>
+                        <input type="email" placeholder="Email" />
+                        <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
+                    </div>
+                </div>
+                <div class="wrap">
+                    <p class="form-title">
+                        Iniciar Sesión</p>
+                    <form class="login">
+                    <input type="text" placeholder="Username" [(ngModel)]="usuario" [ngModelOptions]="{standalone: true}" />
+                    <input type="password" placeholder="Password" [(ngModel)]="clave" [ngModelOptions]="{standalone: true}" />
+                    <input type="button" (click)=logearse()  value="Ingresar" class="btn btn-success btn-sm" />
+                    <div class="remember-forgot">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" />
+                                        Remember Me
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 forgot-pass-content">
+                                <button routerLink="/Registro" class="forgot-pass">Registrase</button>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="posted-by">Posted By: <a href="http://www.jquery2dotnet.com">Bhaumik Patel</a></div>
+    </div>
+    
+  <br>
+  <div class="usuarios">
+      <button></button>
+      </div>
+  </body>
