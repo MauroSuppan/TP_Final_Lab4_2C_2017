@@ -10,12 +10,23 @@ import { RuteandoModule } from './ruteando/ruteando.module';
 import {WsService} from './servicios/ws/ws.service';
 import { HttpModule } from '@angular/http';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { ReservarComponent } from './componentes/reservar/reservar.component';
+import {ReservaService} from './servicios/reserva/reserva.service';
+import {MiHttpService} from './servicios/mi-http/mi-http.service';
+import { ListaDeInvitadosComponent } from './componentes/lista-de-invitados/lista-de-invitados.component';
+import { InicioComponent } from './componentes/inicio/inicio.component';
+import { ReservasComponent } from './componentes/reservas/reservas.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    ReservarComponent,
+    ListaDeInvitadosComponent,
+    InicioComponent,
+    ReservasComponent
   ],
   imports: [
     BrowserModule,
@@ -23,8 +34,9 @@ import { RegistroComponent } from './componentes/registro/registro.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule
+   
   ],
-  providers: [WsService],
+  providers: [WsService,ReservaService,MiHttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,157 @@
+
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
+<body class="fondo">
+
+<!-- Navbar -->
+<div class="w3-top" >
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/Inicio" class="w3-bar-item w3-button w3-padding-large">INICIO</a>
+    
+    <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TOUR</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+    <div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-padding-large w3-button" title="More">SALONES <i class="fa fa-caret-down"></i></button>     
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a (click)="RedireccionarSalon('cairel')" class="w3-bar-item w3-button">Cairel</a>
+        <a (click)="RedireccionarSalon('portal')" class="w3-bar-item w3-button">Portal Mágico</a>
+        <a (click)="RedireccionarSalon('quinta')" class="w3-bar-item w3-button">Quinta casabonna</a>
+      </div>
+    </div>
+    <a (click)="cerrarSesion()" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class=" 	fa fa-user"></i>CERRAR SESION</a>
+  </div>
+</div>
+
+
+
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="#band" class="w3-bar-item w3-button w3-padding-large">BAND</a>
+  <a href="#tour" class="w3-bar-item w3-button w3-padding-large">TOUR</a>
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large">CONTACT</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">MERCH</a>
+</div>
+
+<!-- Page content -->
+<div class="w3-content w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge " style="max-width:2000px;margin-top:10px">
+
+  <!-- The Band Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64 " style="max-width:800px;margin-top:-50px;"   >
+    <h2 class="w3-wide ">Reservas</h2>
+    <br>
+    <div class="" style="max-width:2000px;margin-top:-50px">
+    
+             
+            <div class="container w3-container w3-content w3-center w3-padding-64" style="max-width:800px">
+               
+            <table class="table w3-container w3-content w3-center w3-padding-64  " style="max-width:800px;margin-top:-20px">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">FECHA</th>
+                  <th scope="col">SALON</th>
+                  <th scope="col">MESA</th>
+                  <th scope="col">INVITADO</th>
+                  <th scope="col">DNI</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of reservas">
+                  <td>{{item.fecha}}</td>
+                  <td *ngIf="item.id_salon==1">Cairel</td>
+                  <td *ngIf="item.id_salon==2">Portal Mágico</td>
+                  <td *ngIf="item.id_salon==3">Quinta Cosabonna</td>
+                  <td>{{item.id_mesa}}</td>
+                  <td>{{item.persona}}</td>
+                  <td>{{item.dni_invitado}}</td>
+                </tr>
+              </tbody>
+            </table>
+        
+        </div>
+
+
+
+      
+    </div>
+
+  </div>
+
+
+  
+
+
+
+
+  
+<!-- End Page Content -->
+</div>
+<!-- Add Google Maps -->
+
+
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-black w3-xlarge">
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+
+
+
+</body>
+</html>
+
+
+<!--
+
+  <table class="table w3-container w3-content w3-center w3-padding-64  " style="max-width:800px;margin-top:-20px">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">FECHA</th>
+      <th scope="col">SALON</th>
+      <th scope="col">MESA</th>
+      <th scope="col">INVITADO</th>
+      <th scope="col">DNI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of reservas">
+      <td>{{item.fecha}}</td>
+      <td>{{item.id_salon}}</td>
+      <td>{{item.id_mesa}}</td>
+      <td>{{item.persona}}</td>
+      <td>{{item.dni_invitado}}</td>
+    </tr>
+  </tbody>
+</table>
+-->
+
+
+
+
+

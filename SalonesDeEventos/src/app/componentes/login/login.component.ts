@@ -36,9 +36,16 @@ export class LoginComponent implements OnInit {
     if ( data.token )
     {
       localStorage.setItem('token', data.token);
-     // this.router.navigateByUrl("/pagina2");
-     //this.mostrarLogin=false;
-    // this.mostrarTabla= true;
+      localStorage.setItem('usuario', data.datos.usuario);
+      
+      if(localStorage.getItem("salon")!=null)
+        {
+      this.router.navigateByUrl("/Reservar");
+        }
+        else{
+          this.router.navigateByUrl("/Inicio");
+        }
+        
       
    
     }

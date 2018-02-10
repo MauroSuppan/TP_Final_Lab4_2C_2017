@@ -1,0 +1,39 @@
+.fondo
+{
+    background-image: url("/assets/imagenes/cairel.jpg"); 
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+.flotante {
+    display:scroll;
+        position:fixed;
+        bottom:320px;
+        
+       /* right:0px;*/
+}
+
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+
+  .flipInX {
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-name: flipInX;
+  }
+
+  .miItem{
+    background-color:rgba(0, 0, 0, 0.747);
+    color:white;
+    
+  }
+
+  .miLabel{
+    color:white
+  }
