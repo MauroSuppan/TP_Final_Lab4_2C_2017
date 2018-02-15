@@ -49,18 +49,18 @@ body {font-family: "Lato", sans-serif}
 </div>
 
 <!-- Page content -->
-<div class="w3-content w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge " style="max-width:2000px;margin-top:10px">
+<div class="w3-content w3-container w3-padding-64  w3-opacity w3-light-grey w3-xlarge " style="max-width:2000px;margin-top:10px">
 
   <!-- The Band Section -->
-  <div class="w3-container w3-content w3-center w3-padding-64 " style="max-width:800px;margin-top:-50px;"   >
-    <h2 class="w3-wide ">Reservas</h2>
+  <div class="w3-container w3-content w3-padding-64 " style="max-width:750px;margin-top:-50px; font-size:70%;"   >
+    <h2 class="w3-wide  w3-center">Reservas</h2>
     <br>
     <div class="" style="max-width:2000px;margin-top:-50px">
     
              
-            <div class="container w3-container w3-content w3-center w3-padding-64" style="max-width:800px">
+            <div class="container w3-container w3-content w3-padding-64" style="max-width:650px">
                
-            <table class="table w3-container w3-content w3-center w3-padding-64  " style="max-width:800px;margin-top:-20px">
+            <table class="table w3-container w3-content  w3-padding-64  " style="max-width:650px;margin-top:-20px; ">
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">FECHA</th>
@@ -76,7 +76,7 @@ body {font-family: "Lato", sans-serif}
                   <td *ngIf="item.id_salon==1">Cairel</td>
                   <td *ngIf="item.id_salon==2">Portal Mágico</td>
                   <td *ngIf="item.id_salon==3">Quinta Cosabonna</td>
-                  <td>{{item.id_mesa}}</td>
+                  <td class="w3-center">{{item.id_mesa}}</td>
                   <td>{{item.persona}}</td>
                   <td>{{item.dni_invitado}}</td>
                 </tr>
@@ -127,29 +127,6 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 </html>
 
 
-<!--
-
-  <table class="table w3-container w3-content w3-center w3-padding-64  " style="max-width:800px;margin-top:-20px">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">FECHA</th>
-      <th scope="col">SALON</th>
-      <th scope="col">MESA</th>
-      <th scope="col">INVITADO</th>
-      <th scope="col">DNI</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of reservas">
-      <td>{{item.fecha}}</td>
-      <td>{{item.id_salon}}</td>
-      <td>{{item.id_mesa}}</td>
-      <td>{{item.persona}}</td>
-      <td>{{item.dni_invitado}}</td>
-    </tr>
-  </tbody>
-</table>
--->
 
 
 

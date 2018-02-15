@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {WsService} from '../../servicios/ws/ws.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { SweetAlertService } from 'angular-sweetalert-service';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +13,21 @@ export class LoginComponent implements OnInit {
   usuario;
   clave;
 
-  constructor(private ws: WsService,private router: Router) { }
+
+
+  constructor(private ws: WsService,private router: Router,public alertService: SweetAlertService) { }
 
   ngOnInit() {
+
+    
   }
+
+  
 
   logearse()
   {
    //console.log(this.usuario + this.clave);
-
+   
    
     if( this.usuario &&  this.clave )
       {
@@ -37,29 +44,56 @@ export class LoginComponent implements OnInit {
     {
       localStorage.setItem('token', data.token);
       localStorage.setItem('usuario', data.datos.usuario);
-      
-      if(localStorage.getItem("salon")!=null)
-        {
-      this.router.navigateByUrl("/Reservar");
-        }
-        else{
-          this.router.navigateByUrl("/Inicio");
-        }
-        
-      
-   
+          
     }
     else
       {
         if(data.error=="no es usuario valido")
           {
-            alert("Usuario incorrecto. Reigrese!");
+            let error = {
+              title: 'Error de usuario y contraseña!',
+              text: "Reingrese datos",
+              type: 'warning',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'Aceptar'
+            };
+            this.alertService.alert(error);
           }
           if(data.error=="Faltan los datos del usuario y su clave")
             {
-              alert("Ingrese todos los campos");
+              let error = {
+                title: 'Error!',
+                text: "Ingrese todos los campos",
+                type: 'warning',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Aceptar'
+              };
+              this.alertService.alert(error);
             }
       }
+
+      //redireccion a inicios
+      if(data.datos.rol=='cliente')
+        {
+          if(localStorage.getItem("salon")!=null)
+            {
+          this.router.navigateByUrl("/Reservar");
+            }
+            else{
+              this.router.navigateByUrl("/Inicio");
+            }
+        }
+
+        if(data.datos.rol=='encargado')
+          {
+            /*if(localStorage.getItem("salon")!=null)
+              {
+            this.router.navigateByUrl("/Reservar");
+              }*/
+            this.router.navigateByUrl("/InicioEncargado");
+              
+          }
+
   })
   .catch( e => {
     console.info(e);
@@ -68,7 +102,14 @@ export class LoginComponent implements OnInit {
   }
   else
     {
-      alert("ingrese todos los campos");
+      let error = {
+        title: 'Error!',
+        text: "Ingrese todos los campos",
+        type: 'warning',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Aceptar'
+      };
+      this.alertService.alert(error);
     }
  //cierre if
 

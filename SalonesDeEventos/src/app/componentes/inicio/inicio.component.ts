@@ -121,8 +121,11 @@ export class InicioComponent implements OnInit {
   }
 
 
-
-
+  /*ngOnDestroy()
+  {
+    this.sub.unsubscribe();
+  }  
+*/
 
 
 }

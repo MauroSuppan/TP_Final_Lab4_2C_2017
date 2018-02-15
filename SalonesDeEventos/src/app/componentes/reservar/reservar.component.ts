@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ReservaService } from  '../../servicios/reserva/reserva.service';
+import { SweetAlertService } from 'angular-sweetalert-service';
 
 
 @Component({
@@ -23,7 +24,9 @@ export class ReservarComponent implements OnInit {
   mesaEInvitado : Array<any>;
   auxMesa:any={};
 
-  constructor(private route: ActivatedRoute,private router: Router, private reservaServ:ReservaService) { 
+contadorInvitadosMesa=0;
+
+  constructor(private route: ActivatedRoute,private router: Router, private reservaServ:ReservaService,public alertService: SweetAlertService) { 
 
     //tengo que agarrar el salon desde el local storage
 
@@ -115,12 +118,43 @@ if(datos.mensaje=="ok")
 
   agregarInvitado()
   {
-    if(this.mesa==null || this.invitado==null || this.dni==null)
+    if(this.mesa==null || this.invitado=="" || this.dni==null)
       {
         alert("Complete todos los datos");
         return;
       }
-   // console.log(this.mesa+this.invitado+this.dni);
+      for(let i=0;i<this.mesaEInvitado.length;i++)
+        {
+          
+          if(this.mesaEInvitado[i]['id_mesa']==this.mesa)
+          {
+           //  console.log("mesa en for: "+this.mesaEInvitado[i]['id_mesa']);
+           // console.log("mesa elegida: "+this.mesa);
+          this.contadorInvitadosMesa++;
+
+          console.log("contador: "+this.contadorInvitadosMesa);
+          if(this.contadorInvitadosMesa==10)
+            {
+              let error = {
+                title: 'Maximo de invitado en mesa!',
+                text: "Ya tiene 10 invitados la mesa seleccionada",
+                type: 'warning',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Aceptar'
+              //  imageUrl: "/../assets/imagenes/globos-de-colores.jpg"
+              };
+              this.alertService.alert(error);
+              this.contadorInvitadosMesa=0;
+              return;
+            }
+    
+          }
+    
+        }
+
+        this.contadorInvitadosMesa=0;
+
+
    this.auxMesa = {
      id_salon:this.reserva.id_salon,
      fecha:this.reserva.fecha,
@@ -129,9 +163,9 @@ invitado:this.invitado,
 dni_invitado:this.dni,
 organizador: this.usuario
 
-//dni:this.dni
    };
-
+  
+  
    this.mesaEInvitado.push(this.auxMesa);
   this.invitado="";
   this.mesa=null;

@@ -16,6 +16,9 @@ import {MiHttpService} from './servicios/mi-http/mi-http.service';
 import { ListaDeInvitadosComponent } from './componentes/lista-de-invitados/lista-de-invitados.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { ReservasComponent } from './componentes/reservas/reservas.component';
+import { SweetAlertService } from 'angular-sweetalert-service';
+import { InicioEncargadoComponent } from './componentes/inicio-encargado/inicio-encargado.component';
+import {AuthService} from './servicios/auth/auth.service';
 
 
 @NgModule({
@@ -26,7 +29,8 @@ import { ReservasComponent } from './componentes/reservas/reservas.component';
     ReservarComponent,
     ListaDeInvitadosComponent,
     InicioComponent,
-    ReservasComponent
+    ReservasComponent,
+    InicioEncargadoComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,7 @@ import { ReservasComponent } from './componentes/reservas/reservas.component';
     HttpModule
    
   ],
-  providers: [WsService,ReservaService,MiHttpService],
+  providers: [WsService,ReservaService,MiHttpService,SweetAlertService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

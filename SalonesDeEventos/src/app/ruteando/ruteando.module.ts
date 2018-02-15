@@ -6,6 +6,7 @@ import { RegistroComponent } from '../componentes/registro/registro.component';
 import { ReservarComponent } from '../componentes/reservar/reservar.component';
 import { InicioComponent } from '../componentes/inicio/inicio.component';
 import { ReservasComponent } from '../componentes/reservas/reservas.component';
+import { InicioEncargadoComponent } from '../componentes/inicio-encargado/inicio-encargado.component';
 
 const MiRuteo = [
   
@@ -14,7 +15,8 @@ const MiRuteo = [
   {path: 'Registro' , component: RegistroComponent},
   {path: 'Reservar' , component: ReservarComponent},
   {path: 'Inicio' , component: InicioComponent},
-  {path: 'Reservas' , component: ReservasComponent}
+  {path: 'Reservas' , component: ReservasComponent},
+  {path: 'InicioEncargado' , component: InicioEncargadoComponent}
   
   ]
 
