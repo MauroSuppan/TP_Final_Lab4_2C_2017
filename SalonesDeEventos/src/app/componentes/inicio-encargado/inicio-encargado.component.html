@@ -15,17 +15,25 @@
 body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
 </style>
+<<<<<<< HEAD
 <body class="fondo" >
     <div id='spinner' class="w3-content w3-center" style="">
         <br><br>  <br> <br><br><br> <br><br>
           <img src="/assets/imagenes/spinner.gif" style="height:200px; width:200px;">
           <br><br>  <br> <br><br><br> <br><br>
         </div> 
+=======
+<body class="fondo">
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
 
 <!-- Navbar -->
 <div class="w3-top" >
   <div class="w3-bar w3-black w3-card">
+<<<<<<< HEAD
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" (click)="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+=======
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
     <a (click)="NavbarTodasLasFiestasEInicio()" class="w3-bar-item w3-button w3-padding-large">TODAS LAS FIESTAS</a>
     
     <div class="w3-dropdown-hover w3-hide-small">
@@ -36,8 +44,11 @@ body {font-family: "Lato", sans-serif}
         <a (click)="TraerFiestaPorSalon('3')" class="w3-bar-item w3-button">Quinta casabonna</a>
       </div>
     </div>
+<<<<<<< HEAD
     <a routerLink="/ResultadoEncuestas" class="w3-bar-item w3-button w3-padding-large">RESULTADOS ENCUESTAS</a>
     <a routerLink="/Informes" class="w3-bar-item w3-button w3-padding-large">INFORMES</a>
+=======
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
     <a (click)="cerrarSesion()" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class=" 	fa fa-user"></i>CERRAR SESION</a>
   </div>
 </div>
@@ -47,6 +58,7 @@ body {font-family: "Lato", sans-serif}
 
 <!-- Navbar on small screens -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+<<<<<<< HEAD
   <a (click)="TraerFiestaPorSalon('1')" class="w3-bar-item w3-button w3-padding-large">FIESTAS DE CAIREL</a>
   <a (click)="TraerFiestaPorSalon('2')" class="w3-bar-item w3-button w3-padding-large">FIESTAS DE PORTAL MÁGICO</a>
   <a (click)="TraerFiestaPorSalon('3')" class="w3-bar-item w3-button w3-padding-large">FIESTAS DE QUINTA</a>
@@ -64,12 +76,30 @@ body {font-family: "Lato", sans-serif}
       
     <h2 class="w3-wide  w3-center" style="font-size:100%;color:darkgreen;">Todos los eventos de "Palace Eventual".</h2>
     <br>
+=======
+  <a href="#band" class="w3-bar-item w3-button w3-padding-large">BAND</a>
+  <a href="#tour" class="w3-bar-item w3-button w3-padding-large">TOUR</a>
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large">CONTACT</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">MERCH</a>
+</div>
+
+<!-- Page content -->
+<div class="w3-content w3-container w3-padding-64  w3-opacity w3-light-grey w3-xlarge " style="max-width:2000px;margin-top:10px">
+
+  <!-- The Band Section -->
+  <div class="w3-container w3-content w3-padding-64 " style="max-width:750px;margin-top:-50px; " id="todosLosEventos"  >
+    <h2 class="w3-wide  w3-center" style="font-size:100%;">Todos los eventos de "Palace Eventual"</h2>
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
     <br>
     <div class="" style="max-width:2000px;margin-top:-50px">       
             <div class="container container w3-container w3-content w3-padding-64" style="max-width:650px;">
                
             <table class="table w3-container w3-content  w3-padding-64  " style="max-width:650px;margin-top:-20px;font-size:70%; ">
+<<<<<<< HEAD
               <thead class="thead-dark" style="color:darkgreen" >
+=======
+              <thead class="thead-dark">
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
                 <tr>
                   <th scope="col">FECHA</th>
                   <th scope="col">SALON</th>
@@ -77,16 +107,26 @@ body {font-family: "Lato", sans-serif}
                   <th scope="col">ACCIÓN</th>
                 </tr>
               </thead>
+<<<<<<< HEAD
               <tbody style="color:darkgreen">
                 <tr *ngFor="let item of todasLasFiestas" >
+=======
+              <tbody>
+                <tr *ngFor="let item of todasLasFiestas">
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
                   <td>{{item.fecha}}</td>
                   <td *ngIf="item.id_salon==1">Cairel</td>
                   <td *ngIf="item.id_salon==2">Portal Mágico</td>
                   <td *ngIf="item.id_salon==3">Quinta Cosabonna</td>
                   <td>{{item.organizador}}</td>
+<<<<<<< HEAD
                   <td><button class="w3-button w3-light-green w3-margin-bottom " (click)="traerDetallesDeEvento(item.fecha,item.id_salon )" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-list"></span> Detalles</button></td>
                   <td> <button class="w3-button w3-red w3-margin-bottom " (click)="EliminarFiesta(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-remove"></span> Eliminar</button></td>
                   <td> <button class="w3-button w3-blue w3-margin-bottom " (click)="AgregarInvitado(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-plus"></span> Invitado</button></td>
+=======
+                  <td><button class="w3-button w3-light-green w3-margin-bottom " (click)="traerDetallesDeEvento(item.fecha,item.id_salon )" style="font-size:75%;border: 1px solid black; font-weight: 1000" >Ver detalles</button></td>
+
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
                 </tr>
               </tbody>
             </table>
@@ -103,6 +143,7 @@ body {font-family: "Lato", sans-serif}
 
 
   <div class="w3-container w3-content w3-padding-64 " style="max-width:750px;margin-top:-50px; " id="fiestasPorSalon"  >
+<<<<<<< HEAD
       <h2 class="w3-wide  w3-center" style="font-size:100%;color:darkgreen">Fiestas del salon {{salon}}</h2>
       <br>
       <div class="" style="max-width:2000px;margin-top:-50px">       
@@ -110,6 +151,15 @@ body {font-family: "Lato", sans-serif}
                  
               <table class="table w3-container w3-content  w3-padding-64  " style="max-width:750px;margin-top:-20px;font-size:70%; ">
                 <thead class="thead-dark" style="color:darkgreen">
+=======
+      <h2 class="w3-wide  w3-center" style="font-size:100%;">Fiestas del salon {{salon}}</h2>
+      <br>
+      <div class="" style="max-width:2000px;margin-top:-50px">       
+              <div class="container container w3-container w3-content w3-padding-64" style="max-width:650px;">
+                 
+              <table class="table w3-container w3-content  w3-padding-64  " style="max-width:650px;margin-top:-20px;font-size:70%; ">
+                <thead class="thead-dark">
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
                   <tr>
                     <th scope="col">FECHA</th>
                     <th scope="col">SALON</th>
@@ -118,22 +168,35 @@ body {font-family: "Lato", sans-serif}
                   </tr>
                 </thead>
                 <tbody>
+<<<<<<< HEAD
                   <tr *ngFor="let item of fiestasPorSalon" style="color:darkgreen">
+=======
+                  <tr *ngFor="let item of fiestasPorSalon">
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
                     <td>{{item.fecha}}</td>
                     <td *ngIf="item.id_salon==1">Cairel</td>
                     <td *ngIf="item.id_salon==2">Portal Mágico</td>
                     <td *ngIf="item.id_salon==3">Quinta Cosabonna</td>
                     <td>{{item.organizador}}</td>
+<<<<<<< HEAD
                     <td><button class="w3-button w3-light-green w3-margin-bottom " (click)="traerDetallesDeEvento2(item.fecha,item.id_salon )" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-list"></span> Ver detalles</button></td>
                     <td> <button class="w3-button w3-red w3-margin-bottom " (click)="EliminarFiestaPorSalon(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-remove"></span> Eliminar fiesta</button></td>
                     <td> <button class="w3-button w3-blue w3-margin-bottom " (click)="AgregarInvitado(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-plus"></span> Invitado</button></td>
+=======
+                    <td><button class="w3-button w3-light-green w3-margin-bottom " (click)="traerDetallesDeEvento2(item.fecha,item.id_salon )" style="font-size:75%;border: 1px solid black; font-weight: 1000" >Ver detalles</button></td>
+  
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
                   </tr>
                 </tbody>
               </table>
             <!--  <button class="w3-button w3-red w3-margin-bottom " (click)="DescargarExcel()" style="font-size:75%;border: 1px solid black; font-weight: 1000" >Descargar a excel</button>
               <button class="pruebaa" (click)="DescargarPdf()" style="font-size:75%;border: 1px solid black; font-weight: 1000 ;" >Descargar a PDF</button>-->
            
+<<<<<<< HEAD
            
+=======
+            
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
               <h2 class="w3-wide  w3-center" style="font-size:100%;">   <button class="w3-button  w3-container " style="font-size:75%;border: 1px solid black; font-weight: 1000"> <img class="pdf" src="/assets/imagenes/pdf.png" (click)="DescargarPdfPorSalon()" height="55" width="55"></button>   <button class="w3-button  w3-container  " style="font-size:75%;border: 1px solid black; font-weight: 1000"> <img class="pdf" src="/assets/imagenes/descargaExcel.jpg" (click)="DescargarExcelPorSalon()" height="55" width="55"></button></h2>
               
             </div>
@@ -144,7 +207,11 @@ body {font-family: "Lato", sans-serif}
 
 
   <div class="w3-container w3-content w3-padding-64 " style="max-width:650px;margin-top:-50px; " id="detallesDeEvento"  >
+<<<<<<< HEAD
       <a (click)="Volver()" class=" w3-button w3-margin-bottom " style="font-size:70%;border: 2px solid black; font-weight: 1000;color:black;" ><i class=" fa fa-mail-reply"></i>Volver</a>
+=======
+      <a (click)="Volver()" class="w3-padding-small  w3-hide-small w3-button w3-margin-bottom " style="font-size:70%;border: 2px solid black; font-weight: 1000;color:black;" ><i class=" fa fa-mail-reply"></i>Volver</a>
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
   <br>
       <h2 class="w3-wide  w3-center" style="font-size:100%;">Fecha: {{fecha}}</h2>
     <h2 class="w3-wide  w3-center" style="font-size:100%;">Salón: {{salon}}</h2>
@@ -166,8 +233,13 @@ body {font-family: "Lato", sans-serif}
                  <td>{{item.persona}}</td>
                   <td class="w3-center">{{item.id_mesa}}</td>
                   <td>{{item.dni_invitado}}</td>
+<<<<<<< HEAD
                   <td><button class="w3-button w3-light-green w3-margin-bottom " (click)="ModificarEvento(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-pencil"></span> Modificar</button>
                   <button class="w3-button w3-red w3-margin-bottom " (click)="EliminarRegistro(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-remove"></span> Eliminar</button></td>
+=======
+                  <td><button class="w3-button w3-light-green w3-margin-bottom " (click)="ModificarEvento(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" >Modificar</button>
+                  <button class="w3-button w3-red w3-margin-bottom " (click)="EliminarRegistro(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" >Eliminar</button></td>
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
 
                 </tr>
               </tbody>
@@ -180,7 +252,11 @@ body {font-family: "Lato", sans-serif}
 
 
   <div class="w3-container w3-content w3-padding-64 " style="max-width:650px;margin-top:-50px; " id="detallesDeEventoDeUnSalon"  >
+<<<<<<< HEAD
       <a (click)="VolverAlSalon()" class=" w3-button w3-margin-bottom " style="font-size:70%;border: 2px solid black; font-weight: 1000;color:black;" ><i class=" fa fa-mail-reply"></i>Volver</a>
+=======
+      <a (click)="VolverAlSalon()" class="w3-padding-small  w3-hide-small w3-button w3-margin-bottom " style="font-size:70%;border: 2px solid black; font-weight: 1000;color:black;" ><i class=" fa fa-mail-reply"></i>Volverr</a>
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
   <br>
       <h2 class="w3-wide  w3-center" style="font-size:100%;">Fecha: {{fecha}}</h2>
     <h2 class="w3-wide  w3-center" style="font-size:100%;">Salón: {{salon}}</h2>
@@ -202,8 +278,13 @@ body {font-family: "Lato", sans-serif}
                  <td>{{item.persona}}</td>
                   <td class="w3-center">{{item.id_mesa}}</td>
                   <td>{{item.dni_invitado}}</td>
+<<<<<<< HEAD
                   <td><button class="w3-button w3-light-green w3-margin-bottom " (click)="ModificarEvento(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-pencil"></span> Modificar</button>
                   <button class="w3-button w3-red w3-margin-bottom " (click)="EliminarRegistro(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-remove"></span> Eliminar</button></td>
+=======
+                  <td><button class="w3-button w3-light-green w3-margin-bottom " (click)="ModificarEvento(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" >Modificar</button>
+                  <button class="w3-button w3-red w3-margin-bottom " (click)="EliminarRegistro(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" >Eliminar</button></td>
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
 
                 </tr>
               </tbody>
@@ -216,6 +297,7 @@ body {font-family: "Lato", sans-serif}
 
 
 
+<<<<<<< HEAD
   <div id="ticketModal" class="w3-modal "style="width:100%;height:100%;margin-top: -25px;">
       <div class="w3-modal-content w3-animate-top w3-card-4" >
         <header class="w3-container w3-teal w3-center w3-padding-20" > 
@@ -229,11 +311,27 @@ body {font-family: "Lato", sans-serif}
           <br>
           <label> Numero de mesa:</label>
           <select style="background-color:lightgreen" [(ngModel)]="id_mesa" >
+=======
+  <div id="ticketModal" class="w3-modal">
+      <div class="w3-modal-content w3-animate-top w3-card-4" style="max-width:750px;">
+        <header class="w3-container w3-teal w3-center w3-padding-32"> 
+          <span onclick="document.getElementById('ticketModal').style.display='none'" 
+         class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
+          <h1 class="w3-wide"><i class="fa fa-suitcase w3-margin-right"></i>Modificar datos</h1>
+        </header>
+        <div class="w3-container" style="">
+          <p><label> Nombre invitado:</label></p>
+          <input class="w3-input w3-border" type="text" [(ngModel)]="invitado" >
+          <p><label> Numero de mesa</label></p>
+          
+          <select class="btn-primary" [(ngModel)]="id_mesa" >
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
               <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
               <option>5</option>
+<<<<<<< HEAD
             </select>     
             <br>   
           <p><label> DNI:</label></p>
@@ -241,10 +339,19 @@ body {font-family: "Lato", sans-serif}
           <button class="w3-button w3-block w3-teal w3-padding-6 w3-section w3-right" (click)="EnviarModificacion()">Listo <i class="fa fa-check"></i></button>
           <button class="w3-button w3-red w3-section w3-content w3-center " onclick="document.getElementById('ticketModal').style.display='none'">Cerrar <i class="fa fa-remove"></i></button>
 
+=======
+            </select>        
+          <p><label> DNI:</label></p>
+          <input class="w3-input w3-border" type="text" [(ngModel)]="dni" >
+          <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right" (click)="EnviarModificacion()">Listo <i class="fa fa-check"></i></button>
+          <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Cerrar <i class="fa fa-remove"></i></button>
+          <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
         </div>
       </div>
     </div>
 
+<<<<<<< HEAD
     <div id="altainvitado" class="w3-modal "style="width:100%;height:100%;margin-top: -25px;">
         <div class="w3-modal-content w3-animate-top w3-card-4" >
           <header class="w3-container w3-teal w3-center w3-padding-20" > 
@@ -313,6 +420,8 @@ body {font-family: "Lato", sans-serif}
     <br>
     <br>
    
+=======
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
 <!-- End Page Content -->
 </div>
 <!-- Add Google Maps -->

@@ -44,12 +44,15 @@ export class InicioEncargadoComponent implements OnInit {
   }
 
   ngOnInit() {
+<<<<<<< HEAD
 
     if(this.usuario==null || this.usuario=="" )
       {
   this.router.navigateByUrl("/Login");
       }
 
+=======
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
     let token = this.auth.decodificarToken();
     //console.log(token);
    // console.log("usuarioooo: "+token.data.usuario);
@@ -68,6 +71,7 @@ export class InicioEncargadoComponent implements OnInit {
 
         this.router.navigateByUrl("/Login");
       }
+<<<<<<< HEAD
       document.getElementById("pagina").style.display = 'none';
       document.getElementById("spinner").style.display = 'block';
       setTimeout(function(){
@@ -75,6 +79,8 @@ export class InicioEncargadoComponent implements OnInit {
         document.getElementById("pagina").style.display = 'block';
        
         }, 3000);
+=======
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
 
       document.getElementById("detallesDeEvento").style.display = 'none';
      document.getElementById("todosLosEventos").style.display = 'block';
@@ -180,6 +186,7 @@ this.reservaServ.DetallesEvento(
 
   EnviarModificacion()
   {
+<<<<<<< HEAD
     if(this.id_mesa =='' || this.invitado =='' ||  this.dni=='')
       {
         const alerta = {
@@ -192,6 +199,10 @@ this.reservaServ.DetallesEvento(
         this.alertService.success(alerta);
         return;
       }
+=======
+    
+    
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
     this.reservaServ.ModificarDatosEventos(this.idRegistro,{
       
       datos: {
@@ -208,6 +219,7 @@ this.reservaServ.DetallesEvento(
     {
       this.traerDetallesDeEvento(this.fecha,this.id_salon);
       document.getElementById("ticketModal").style.display = 'none';
+<<<<<<< HEAD
       const alerta = {
         title: 'Bien!',
         text: "Se edito correctamente.",
@@ -217,6 +229,9 @@ this.reservaServ.DetallesEvento(
       };
       this.alertService.success(alerta);
       
+=======
+      alert("se edito bien");
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
     });
   }
 
@@ -228,6 +243,7 @@ this.reservaServ.DetallesEvento(
      
     this.reservaServ.EliminarRegistro(item.id).then(datos=>
     {
+<<<<<<< HEAD
       const alerta = {
         title: 'Bien!',
         text: "Dato borrado.",
@@ -236,6 +252,9 @@ this.reservaServ.DetallesEvento(
         confirmButtonText: 'Listo'
       };
       this.alertService.success(alerta);
+=======
+      alert("se borro bien");
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
       this.traerDetallesDeEvento(this.fecha,this.id_salon);
     });
   
@@ -274,6 +293,7 @@ this.reservaServ.DetallesEvento(
 
   DescargarExcel()
   {
+<<<<<<< HEAD
     document.getElementById("pagina").style.display = 'none';
     document.getElementById("spinner").style.display = 'block';
     setTimeout(function(){
@@ -281,6 +301,8 @@ this.reservaServ.DetallesEvento(
       document.getElementById("pagina").style.display = 'block';
      
       }, 3000);
+=======
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
 
     var encabezado = ['Fecha','ID_Salon','Organizador'];
     let datos : any = [];
@@ -294,6 +316,7 @@ this.reservaServ.DetallesEvento(
 
   DescargarPdf()
   {
+<<<<<<< HEAD
     document.getElementById("pagina").style.display = 'none';
     document.getElementById("spinner").style.display = 'block';
     setTimeout(function(){
@@ -302,6 +325,8 @@ this.reservaServ.DetallesEvento(
      
       }, 3000);
 
+=======
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
     var columns = [
       {title: "FECHA", dataKey: "fecha"},
       {title: "IDSALON", dataKey: "id_salon"},
@@ -329,6 +354,7 @@ this.reservaServ.DetallesEvento(
 
   DescargarExcelPorSalon()
   {
+<<<<<<< HEAD
     document.getElementById("pagina").style.display = 'none';
     document.getElementById("spinner").style.display = 'block';
     setTimeout(function(){
@@ -336,6 +362,8 @@ this.reservaServ.DetallesEvento(
       document.getElementById("pagina").style.display = 'block';
      
       }, 3000);
+=======
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
 
     var encabezado = ['Fecha','ID_Salon','Organizador'];
     let datos : any = [];
@@ -349,6 +377,7 @@ this.reservaServ.DetallesEvento(
 
   DescargarPdfPorSalon()
   {
+<<<<<<< HEAD
     document.getElementById("pagina").style.display = 'none';
     document.getElementById("spinner").style.display = 'block';
     setTimeout(function(){
@@ -357,6 +386,8 @@ this.reservaServ.DetallesEvento(
      
       }, 3000);
 
+=======
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
     var columns = [
       {title: "FECHA", dataKey: "fecha"},
       {title: "IDSALON", dataKey: "id_salon"},
@@ -408,6 +439,7 @@ VolverAlSalon()
   {
     this.usuario=null;
     localStorage.clear();
+<<<<<<< HEAD
     const exito = {
       title: 'Exito!',
       text: "usted se ha deslogueado correctamente",
@@ -536,5 +568,12 @@ VolverAlSalon()
 
   }
 
+=======
+    alert("usted se ha deslogueado correctamente");
+    this.router.navigateByUrl("/Inicio");
+  }
+
+  
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
 
 }

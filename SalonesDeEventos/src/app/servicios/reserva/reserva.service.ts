@@ -52,6 +52,7 @@ TraerFiestaPorSalon(datos:any)
 {
   return this.miHtpp.TraerFiestaPorSalon("traerFiestaPorSalon/",datos);
 }
+<<<<<<< HEAD
 
 CargarEncuesta(datos:any)
 {
@@ -98,5 +99,7 @@ ultimaFiesta()
 }
 
 
+=======
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
 
 }

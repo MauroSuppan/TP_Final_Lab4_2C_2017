@@ -41,6 +41,7 @@ import { InformesComponent } from './componentes/informes/informes.component';
     ListaDeInvitadosComponent,
     InicioComponent,
     ReservasComponent,
+<<<<<<< HEAD
     InicioEncargadoComponent,
     MapaInvitadoComponent,
     InvitacionesComponent,
@@ -48,6 +49,9 @@ import { InformesComponent } from './componentes/informes/informes.component';
     ResultadoEncuestaComponent,
     InicioEmpleadoComponent,
     InformesComponent
+=======
+    InicioEncargadoComponent
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,11 @@ import { InformesComponent } from './componentes/informes/informes.component';
     ChartsModule
    
   ],
+<<<<<<< HEAD
   providers: [WsService,ReservaService,MiHttpService,SweetAlertService,AuthService,Location],
+=======
+  providers: [WsService,ReservaService,MiHttpService,SweetAlertService,AuthService],
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
   bootstrap: [AppComponent]
 })
 export class AppModule { }

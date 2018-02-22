@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ReservaService } from  '../../servicios/reserva/reserva.service';
 import { SweetAlertService } from 'angular-sweetalert-service';
+<<<<<<< HEAD
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {AuthService} from '../../servicios/auth/auth.service';
 
+=======
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
 
 
 @Component({
@@ -31,6 +34,7 @@ export class ReservarComponent implements OnInit {
 
 contadorInvitadosMesa=0;
 
+<<<<<<< HEAD
   captcha;
   imagenCaptcha;
 
@@ -38,6 +42,9 @@ contadorInvitadosMesa=0;
   fechaActualFormato;
 
   constructor(private route: ActivatedRoute,private router: Router, private reservaServ:ReservaService,public alertService: SweetAlertService,private builder: FormBuilder,private auth:AuthService) { 
+=======
+  constructor(private route: ActivatedRoute,private router: Router, private reservaServ:ReservaService,public alertService: SweetAlertService) { 
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
 
     //tengo que agarrar el salon desde el local storage
 
@@ -237,8 +244,12 @@ if(datos.mensaje=="ok")
 
   agregarInvitado()
   {
+<<<<<<< HEAD
     document.getElementById("mostrarCaptcha").style.display = 'none';
     if(this.mesa==undefined)
+=======
+    if(this.mesa==null || this.invitado=="" || this.dni==null)
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
       {
        
         let error = {
@@ -252,7 +263,10 @@ if(datos.mensaje=="ok")
         this.alertService.alert(error);
         return;
       }
+<<<<<<< HEAD
    
+=======
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
       for(let i=0;i<this.mesaEInvitado.length;i++)
         {
           

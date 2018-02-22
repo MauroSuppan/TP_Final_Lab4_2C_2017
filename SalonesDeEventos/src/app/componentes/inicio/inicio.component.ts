@@ -135,6 +135,7 @@ export class InicioComponent implements OnInit {
   }  
 */
 
+<<<<<<< HEAD
 myFunction() {
   var x = document.getElementById("navDemo");
   if (x.className.indexOf("w3-show") == -1) {
@@ -148,5 +149,7 @@ navbar(parametro)
 {
   this.router.navigateByUrl(parametro);
 }
+=======
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
 
 }

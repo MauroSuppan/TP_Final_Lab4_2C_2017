@@ -45,7 +45,10 @@ export class LoginComponent implements OnInit {
       console.log(data);
       localStorage.setItem('token', data.token);
       localStorage.setItem('usuario', data.datos.usuario);
+<<<<<<< HEAD
       localStorage.setItem('dni', data.datos.dni);
+=======
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
           
     }
     else
@@ -55,7 +58,11 @@ export class LoginComponent implements OnInit {
             let error = {
               title: 'Error de usuario y contraseña!',
               text: "Reingrese datos",
+<<<<<<< HEAD
               type: 'error',
+=======
+              type: 'warning',
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
               confirmButtonColor: '#3085d6',
               confirmButtonText: 'Aceptar'
             };
@@ -75,7 +82,11 @@ export class LoginComponent implements OnInit {
       }
 
       //redireccion a inicios
+<<<<<<< HEAD
       if(data.datos.rol=='')
+=======
+      if(data.datos.rol=='cliente')
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
         {
           if(localStorage.getItem("salon")!=null)
             {
@@ -96,6 +107,7 @@ export class LoginComponent implements OnInit {
               
           }
 
+<<<<<<< HEAD
           if(data.datos.rol=='empleado')
             {
               /*if(localStorage.getItem("salon")!=null)
@@ -106,6 +118,8 @@ export class LoginComponent implements OnInit {
                 
             }
 
+=======
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
   })
   .catch( e => {
     console.info(e);

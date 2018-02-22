@@ -49,8 +49,12 @@ export class MiHttpService {
 
   EliminarRegistro(rutaApi:string)
   {
+<<<<<<< HEAD
     //cambie delete por get
     return this.http.get(this.serv+rutaApi)
+=======
+    return this.http.delete(this.serv+rutaApi)
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
     .toPromise().then(this.ExtraerDatos).catch(this.ManejadorDeError);
   }
 
@@ -62,6 +66,7 @@ export class MiHttpService {
   .toPromise().then(this.ExtraerDatos).catch(this.ManejadorDeError); 
 }
 
+<<<<<<< HEAD
 CargarEncuesta(rutaApi:string,datos:any)
 {
   return this.http.post(this.serv+rutaApi,datos)
@@ -80,6 +85,9 @@ verSiRespondioEncuesta(rutaApi:string,reserva:any)
   return this.http.post(this.serv+rutaApi,reserva)
   .toPromise().then(this.ExtraerDatos).catch(this.ManejadorDeError);
 }
+=======
+
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
 
 
   ManejadorDeError(error:Response|any){

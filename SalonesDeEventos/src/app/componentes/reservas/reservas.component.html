@@ -45,6 +45,7 @@ body {font-family: "Lato", sans-serif}
 </div>
 
 <!-- Page content -->
+<<<<<<< HEAD
 <div class="w3-content w3-container w3-padding-64  w3-opacity w3-light-grey w3-xlarge " style="max-width:2000px;margin-top:10px" id="pagina" >
 
   <!-- The Band Section -->
@@ -52,11 +53,22 @@ body {font-family: "Lato", sans-serif}
     <h2 class="w3-wide  w3-center" style="text-decoration: underline green">Reservas</h2>
     <h3 class="w3-wide  w3-center">{{usuario}} estas son sus reservas.</h3>
     <br>
+=======
+<div class="w3-content w3-container w3-padding-64  w3-opacity w3-light-grey w3-xlarge " style="max-width:2000px;margin-top:10px">
+
+  <!-- The Band Section -->
+  <div class="w3-container w3-content w3-padding-64 " style="max-width:750px;margin-top:-50px; font-size:70%;"   >
+    <h2 class="w3-wide  w3-center">Reservas</h2>
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
     <br>
     <div class="" style="max-width:2000px;margin-top:-50px">
     
              
+<<<<<<< HEAD
             <div class="container w3-container w3-content w3-padding-64" style="max-width:650px" id="eventos">
+=======
+            <div class="container w3-container w3-content w3-padding-64" style="max-width:650px">
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
                
             <table class="table w3-container w3-content  w3-padding-64  " style="max-width:650px;margin-top:-20px; ">
               <thead class="thead-dark">
@@ -72,7 +84,13 @@ body {font-family: "Lato", sans-serif}
                   <td *ngIf="item.id_salon==1">Cairel</td>
                   <td *ngIf="item.id_salon==2">Portal Mágico</td>
                   <td *ngIf="item.id_salon==3">Quinta Cosabonna</td>
+<<<<<<< HEAD
                   <td><button class="w3-button w3-light-green w3-margin-bottom " (click)="traerDetallesDeEvento(item.fecha,item.id_salon )" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-list"></span> Ver detalles</button></td>
+=======
+                  <td class="w3-center">{{item.id_mesa}}</td>
+                  <td>{{item.persona}}</td>
+                  <td>{{item.dni_invitado}}</td>
+>>>>>>> e11332a27268671c3e79873bbcc6f3c8f94d9c28
                 </tr>
               </tbody>
             </table>
