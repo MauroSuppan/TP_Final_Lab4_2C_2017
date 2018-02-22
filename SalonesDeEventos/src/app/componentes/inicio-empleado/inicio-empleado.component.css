@@ -1,0 +1,48 @@
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.flipInX {
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  animation-name: flipInX;
+}
+
+.miItem{
+  background-color:rgba(0, 0, 0, 0.747);
+  color:white;
+  
+}
+
+.miLabel{
+  color:white
+}
+
+
+.fondo
+{
+    background-image: url("/assets/imagenes/empleado.jpg"); 
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+
+.container
+{
+  overflow-x: auto;
+}
+
+.row
+{
+  min-width: 800px;
+  /*td:first-child {
+    position : absolute;
+    background : $third-color;
+    width : $frozen-width;
+*/
+}
+

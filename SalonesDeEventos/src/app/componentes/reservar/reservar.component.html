@@ -13,16 +13,22 @@
 body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
 </style>
-<body class="fondo">
+
+
+<body class="fondo" id="body">
+
+    <div id='spinner' class="w3-content w3-center" style="">
+        <br><br>  <br> <br><br><br> <br><br>
+          <img src="/assets/imagenes/spinner.gif" style="height:200px; width:200px;">
+          <br><br>  <br> <br><br><br> <br><br>
+        </div> 
 
 <!-- Navbar -->
 <div class="w3-top" >
   <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="/Inicio" class="w3-bar-item w3-button w3-padding-large">INICIO</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" (click)="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a routerLink="/Inicio" class="w3-bar-item w3-button w3-padding-large">INICIO</a>
     
-    <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TOUR</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
     <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">SALONES <i class="fa fa-caret-down"></i></button>     
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
@@ -40,14 +46,14 @@ body {font-family: "Lato", sans-serif}
 
 <!-- Navbar on small screens -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#band" class="w3-bar-item w3-button w3-padding-large">BAND</a>
-  <a href="#tour" class="w3-bar-item w3-button w3-padding-large">TOUR</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large">CONTACT</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large">MERCH</a>
+  <a (click)="RedireccionarSalon('cairel')" class="w3-bar-item w3-button w3-padding-large">CAIREL</a>
+  <a (click)="RedireccionarSalon('portal')"class="w3-bar-item w3-button w3-padding-large">PORTAL MÁGICO</a>
+  <a (click)="RedireccionarSalon('quinta')" class="w3-bar-item w3-button w3-padding-large">QUINTA CASABONNA</a>
+  <a (click)="cerrarSesion()" class="w3-bar-item w3-button w3-padding-large"><i class=" 	fa fa-user"></i>CERRAR SESION</a>
 </div>
 
 <!-- Page content -->
-<div class="w3-content animated flipInX miItem " style="max-width:2000px;margin-top:46px">
+<div class="w3-content animated flipInX miItem " style="max-width:2000px;margin-top:46px" id="pagina">
 
   <!-- The Band Section -->
   
@@ -112,49 +118,138 @@ body {font-family: "Lato", sans-serif}
 
     <div  [hidden]="!mostrarReservaSalon">
     <p class="w3-wide ">Seleccione la fecha en la cual quiera realizar su evento</p>
-    <input class="" type="date" [(ngModel)]="fecha" style="color:pink;height:35px;font-size:15pt; width:200px;background-color: black;">
+    <input class="" type="date" [(ngModel)]="fecha"  style="color:pink;height:35px;font-size:15pt; width:200px;background-color: black;"> 
     <br>
     <br>
-    <button class="w3-button w3-black w3-margin-bottom" (click)="Reservar()"  >Reservar fecha</button>
+    <button class="w3-button w3-black w3-margin-bottom" (click)="Reservar()"  >Reservar fecha <span class="glyphicon glyphicon-ok"></span></button>
   </div>
   </div>
 
-  <!--carga de mesas e invitados-->
-  <div [hidden]="!mostrarCargaDeInvitados" class="w3-container w3-content w3-center w3-padding-64" style="margin-top:-100px; " >
+  <!--carga de mesas e invitados [hidden]="!mostrarCargaDeInvitados"-->
+  <div [hidden]="!mostrarCargaDeInvitados" class=" w3-container w3-content w3-center w3-padding-64" style="margin-top:-100px; max-width:800px " >
+
+
      <!-- <div class="container ">
           <div class="row">-->
-              <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:400px; margin-top:-80px;  ">
-                  <br>
+              <div class="w3-container container w3-content w3-center w3-padding-64" style="max-width:500px; margin-top:-80px; " id="cargaInvitados">
+  
+                <br>
+
+
+                
 <label >Seleccione numero de mesa</label>
 <br>
-<select class="btn-primary" style="font-size:15px;" [(ngModel)]="mesa" >
+<select class="btn-primary" style="font-size:15px;" [(ngModel)]="mesa" *ngIf="salon=='Cairel'" >
+    <option >1</option>
+    <option >2</option>
+    <option >3</option>
+    <option >4</option>
+    <option >5</option>
+    <option >6</option>
+    <option >7</option>
+    <option >8</option>
+    <option >9</option>
+    <option >10</option>
+</select>
+<select class="btn-primary" style="font-size:15px;" [(ngModel)]="mesa" *ngIf="salon=='Portal Mágico'" >
     <option >1</option>
     <option >2</option>
     <option >3</option>
     <option >4</option>
     <option >5</option>
 </select>
+<select class="btn-primary" style="font-size:15px;" [(ngModel)]="mesa" *ngIf="salon=='Quinta Casabonna'" >
+    <option >1</option>
+    <option >2</option>
+    <option >3</option>
+    <option >4</option>
+    <option >5</option>
+    <option >6</option>
+    <option >7</option>
+    <option >8</option>
+    <option >9</option>
+    <option >10</option>
+    <option >11</option>
+    <option >12</option>
+    <option >13</option>
+    <option >14</option>
+    <option >15</option>
+    <option >16</option>
+    <option >17</option>
+    <option >18</option>
+    <option >19</option>
+    <option >20</option>
+</select>
 <br>
-<br>
+
 <label>Datos invitados</label>
 <br>
-<input type="text" class="form-control" placeholder="Nombre completo" [(ngModel)]="invitado">
-<input type="text" class="form-control" placeholder="DNI" [(ngModel)]="dni">
-<button class="w3-button w3-black w3-margin-bottom " (click)="agregarInvitado()" >Agregar</button>
+<form  [formGroup]="formRegistro"  >
+<input type="text" class="form-control" placeholder="Nombre completo"  name="invitado" [formControl]="invitado" required >
+<div *ngIf="invitado.valid" class="alert alert-success">
+    Nombre válido.
+  </div>
+  <div *ngIf="invitado.invalid && (invitado.dirty || invitado.touched)"
+  class="alert alert-danger">
+    <div *ngIf="invitado.errors.required">
+       El nombre es requerido.
+     </div>
+  </div>
+
+<input type="text" class="form-control" placeholder="DNI" name="dni" [formControl]="dni" required>
+<div *ngIf="dni.valid" class="alert alert-success">
+    DNI válido.
+  </div>
+  <div *ngIf="dni.invalid && (dni.dirty || dni.touched)"
+  class="alert alert-danger">
+    <div *ngIf="dni.errors.required">
+       El DNI es requerido.
+     </div>
+     <div *ngIf="dni.errors.minlength">
+        El DNI debe tener 8 digitos.
+      </div>
+      <div *ngIf="dni.errors.maxlength">
+          El DNI debe tener 8 digitos.
+       </div>
+  </div>
+  <br>
+<button class="w3-button w3-black w3-margin-bottom " style="width:40%" (click)="agregarInvitado()" [disabled]="!formRegistro.valid" ><span class="glyphicon glyphicon-plus-sign"></span> Invitado</button>
+
 <br>
 <!--<a class='flotante' href='#' ><img src='/assets/imagenes/add.jpg' border="0"/></a>-->
 
-<button class="w3-button w3-black w3-margin-bottom " (click)="CargarALaBase()" >Cargar a la base</button>
-<br>
-<br>
-<br>
+</form>
 
-<app-lista-de-invitados [listado]="mesaEInvitado"></app-lista-de-invitados>
 
+<br>
+<div *ngIf="mesaEInvitado!=''" >
+<app-lista-de-invitados  [listado]="mesaEInvitado"></app-lista-de-invitados>
+</div>
+<br>
+<button class="w3-button w3-green w3-margin-bottom " style="width:40%" (click)="mostrarCaptcha()" *ngIf="mesaEInvitado!=''" ><span class="glyphicon glyphicon-ok-circle"></span> Terminar!</button>
            </div>
          <!--   </div>
           </div>-->
 
+          <div id="mostrarCaptcha">
+          <form [formGroup]="formCaptcha" class="w3-container container w3-content w3-center w3-padding-64" style="max-width:500px; margin-top:-80px;  " *ngIf="mesaEInvitado!=''" >
+              <img  *ngIf="this.captcha=='GHIJ'" class="" src="/assets/imagenes/captcha1.png"  height="55" width="50%">
+              <img *ngIf="this.captcha=='BCDE'" class="" src="/assets/imagenes/captcha2.png"  height="55" width="50%">
+              <img  *ngIf="this.captcha=='NOPQ'" class="" src="/assets/imagenes/captcha3.png"  height="55" width="50%">
+              <img *ngIf="captcha=='UVWX'" class="" src="/assets/imagenes/captcha4.png"  height="55" width="50%">
+              <img *ngIf="captcha=='QRST'" class="" src="/assets/imagenes/captcha5.png"  height="55" width="50%">
+              
+              <input type="text" class="form-control w3-content w3-center" placeholder="Ingrese el captcha" name="captchaIngresado" [formControl]="captchaIngresado" required style="width:45%">
+              <div *ngIf="captchaIngresado.invalid && (captchaIngresado.dirty || captchaIngresado.touched)"
+              class="alert alert-danger w3-content w3-center " style="max-width:150px; " >
+                <div *ngIf="captchaIngresado.errors.required" >
+                   Captcha requerido.
+                 </div>
+              </div>
+              <br>
+              <button class="w3-button w3-green w3-margin-bottom " style="font-weight: 1000px;" (click)="CargarALaBase()"  [disabled]="!formCaptcha.valid"  ><span class="glyphicon glyphicon-ok-circle"></span> ENVIAR FIESTA!</button>
+          </form>
+        </div>
   </div>
 
   

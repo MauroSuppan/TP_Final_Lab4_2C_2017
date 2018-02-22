@@ -16,7 +16,21 @@ import {MiHttpService} from './servicios/mi-http/mi-http.service';
 import { ListaDeInvitadosComponent } from './componentes/lista-de-invitados/lista-de-invitados.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { ReservasComponent } from './componentes/reservas/reservas.component';
+import { SweetAlertService } from 'angular-sweetalert-service';
+import { InicioEncargadoComponent } from './componentes/inicio-encargado/inicio-encargado.component';
+import {AuthService} from './servicios/auth/auth.service';
 
+import { RecaptchaModule } from 'ng-recaptcha';
+import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
+import { NguiMapModule} from '@ngui/map';
+import { MapaInvitadoComponent } from './componentes/mapa-invitado/mapa-invitado.component';
+import { Location, LocationStrategy } from '@angular/common';
+import { InvitacionesComponent } from './componentes/invitaciones/invitaciones.component';
+import { EncuestasComponent } from './componentes/encuestas/encuestas.component';
+import { ChartsModule } from 'ng2-charts';
+import { ResultadoEncuestaComponent } from './componentes/resultado-encuesta/resultado-encuesta.component';
+import { InicioEmpleadoComponent } from './componentes/inicio-empleado/inicio-empleado.component';
+import { InformesComponent } from './componentes/informes/informes.component';
 
 @NgModule({
   declarations: [
@@ -26,17 +40,28 @@ import { ReservasComponent } from './componentes/reservas/reservas.component';
     ReservarComponent,
     ListaDeInvitadosComponent,
     InicioComponent,
-    ReservasComponent
+    ReservasComponent,
+    InicioEncargadoComponent,
+    MapaInvitadoComponent,
+    InvitacionesComponent,
+    EncuestasComponent,
+    ResultadoEncuestaComponent,
+    InicioEmpleadoComponent,
+    InformesComponent
   ],
   imports: [
     BrowserModule,
     RuteandoModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RecaptchaModule.forRoot(),
+    RecaptchaFormsModule,
+    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyAFl-8KlMMV3aelDZs91xpmSOfKmrjEsV4'}),
+    ChartsModule
    
   ],
-  providers: [WsService,ReservaService,MiHttpService],
+  providers: [WsService,ReservaService,MiHttpService,SweetAlertService,AuthService,Location],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

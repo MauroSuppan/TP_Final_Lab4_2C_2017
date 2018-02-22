@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
+<body class="fondo">
+    <div class="w3-top" >
+        <div class="w3-bar w3-black w3-card">
+          <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" (click)="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+          <a routerLink="/Inicio" class="w3-bar-item w3-button w3-padding-large">INICIO</a>
+          
+          <a routerLink="/Invitaciones" class="w3-bar-item w3-button w3-padding-large w3-hide-small">VOLVER A MIS INVITACIONES</a>
+          
+          <a (click)="cerrarSesion()" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class=" 	fa fa-user"></i>CERRAR SESION</a>
+        </div>
+      </div>
+      
+      
+      
+      
+      <!-- Navbar on small screens -->
+      <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+        <a routerLink="/Invitaciones" class="w3-bar-item w3-button w3-padding-large">VOLVER A MIS INVITACIONES</a>
+
+        <a (click)="cerrarSesion()" class="w3-bar-item w3-button w3-padding-large"><i class=" 	fa fa-user"></i>CERRAR SESION</a>
+      </div>
+<br>
+<br>
+<div class="container" style="background-color:lightgray;
+padding: 20px;
+border-radius:5px">
+
+  <div class="row" >
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-12 mx-auto">
+          <span class="anchor" id="formLogin"></span>
+          <div class="card rounded-0" style="border-radius:5px !important;">
+            <div class="card-header">
+              <h2 class="mb-0" style="text-align:center">Te ayudamos a llegar el día {{fecha}} al salón {{salon}}</h2>
+            </div>
+            <div class="card-body">
+   
+
+              <div class="form-group w3-content w3-center">
+                  <label for="localDestino">Seleccione el modo de viaje:</label>
+                  <select [(ngModel)]="viaje" class="form-control form-control-sm w3-content w3-center" style="width:25%; background-color:grey; color:red">
+                      <option value="DRIVING">Auto</option>
+                    <option value="WALKING">Caminando</option>
+                    
+                    <option value="TRANSIT">Transporte Publico</option>
+                  </select>
+                </div>
+                <div class="w3-content w3-center">
+              <button type="button" class="w3-button w3-light-green w3-margin-bottom "  style="font-size:75%;border: 1px solid black; font-weight: 1000" (click)="ir()">IR! <span class="glyphicon glyphicon-arrow-right"></span></button>
+    
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ngui-map zoom="13" center="">
+    <directions-renderer [suppressMarkers]="true" [draggable]="true" panel="#my-panel" (directions_changed)="directionsChanged()"
+      [directions-request]="direction">
+    </directions-renderer>
+  </ngui-map>
+  <div id="my-panel"></div>
+</div>
+
+
+
+</body>
+</html>

@@ -8,12 +8,16 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class WsService {
 
-  url= "http://localhost/apiFinal/";
+  //local
+  //url= "http://localhost/apiFinal/";
+  url= "https://suppaneventos.000webhostapp.com/apiFinal/";
   constructor(public http: Http) { }
 
   post(data: Object)
   {
-    return this.http.post("http://localhost/apiFinal/ingresoo/", data)
+    //local
+   // return this.http.post("http://localhost/apiFinal/ingresoo/", data)
+    return this.http.post("https://suppaneventos.000webhostapp.com/apiFinal/ingresoo/", data)
     .toPromise()
     .then( this.extractData )
     .catch( this.handleError );

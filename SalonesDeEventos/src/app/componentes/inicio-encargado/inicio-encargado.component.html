@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
+<body class="fondo" >
+    <div id='spinner' class="w3-content w3-center" style="">
+        <br><br>  <br> <br><br><br> <br><br>
+          <img src="/assets/imagenes/spinner.gif" style="height:200px; width:200px;">
+          <br><br>  <br> <br><br><br> <br><br>
+        </div> 
+
+<!-- Navbar -->
+<div class="w3-top" >
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" (click)="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a (click)="NavbarTodasLasFiestasEInicio()" class="w3-bar-item w3-button w3-padding-large">TODAS LAS FIESTAS</a>
+    
+    <div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-padding-large w3-button" title="More">FIESTAS POR SALONES <i class="fa fa-caret-down"></i></button>     
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a (click)="TraerFiestaPorSalon('1')" class="w3-bar-item w3-button">Cairel</a>
+        <a (click)="TraerFiestaPorSalon('2')" class="w3-bar-item w3-button">Portal Mágico</a>
+        <a (click)="TraerFiestaPorSalon('3')" class="w3-bar-item w3-button">Quinta casabonna</a>
+      </div>
+    </div>
+    <a routerLink="/ResultadoEncuestas" class="w3-bar-item w3-button w3-padding-large">RESULTADOS ENCUESTAS</a>
+    <a routerLink="/Informes" class="w3-bar-item w3-button w3-padding-large">INFORMES</a>
+    <a (click)="cerrarSesion()" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class=" 	fa fa-user"></i>CERRAR SESION</a>
+  </div>
+</div>
+
+
+
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a (click)="TraerFiestaPorSalon('1')" class="w3-bar-item w3-button w3-padding-large">FIESTAS DE CAIREL</a>
+  <a (click)="TraerFiestaPorSalon('2')" class="w3-bar-item w3-button w3-padding-large">FIESTAS DE PORTAL MÁGICO</a>
+  <a (click)="TraerFiestaPorSalon('3')" class="w3-bar-item w3-button w3-padding-large">FIESTAS DE QUINTA</a>
+  <a routerLink="/ResultadoEncuestas" class="w3-bar-item w3-button w3-padding-large">RESULTADOS ENCUESTAS</a>
+  <a routerLink="/Informes" class="w3-bar-item w3-button w3-padding-large">INFORMES</a>
+  <a (click)="cerrarSesion()" class="w3-bar-item w3-button w3-padding-large"><i class=" 	fa fa-user"></i>CERRAR SESION</a>
+</div>
+
+<!-- Page content -->
+<div class="w3-content w3-container w3-padding-64  w3-opacity w3-light-grey w3-xlarge " style="max-width:2000px;margin-top:10px" id="pagina">
+
+  <!-- The Band Section -->
+  <div class="w3-container w3-content w3-padding-64 " style="max-width:750px;margin-top:-50px; " id="todosLosEventos"  >
+      <h1 class="w3-wide  w3-center" style="font-size:120%; color:darkgreen;font-weight:100%">Bievenido {{usuario}}</h1> 
+      
+    <h2 class="w3-wide  w3-center" style="font-size:100%;color:darkgreen;">Todos los eventos de "Palace Eventual".</h2>
+    <br>
+    <br>
+    <div class="" style="max-width:2000px;margin-top:-50px">       
+            <div class="container container w3-container w3-content w3-padding-64" style="max-width:650px;">
+               
+            <table class="table w3-container w3-content  w3-padding-64  " style="max-width:650px;margin-top:-20px;font-size:70%; ">
+              <thead class="thead-dark" style="color:darkgreen" >
+                <tr>
+                  <th scope="col">FECHA</th>
+                  <th scope="col">SALON</th>
+                  <th scope="col">ORGANIZADOR</th>
+                  <th scope="col">ACCIÓN</th>
+                </tr>
+              </thead>
+              <tbody style="color:darkgreen">
+                <tr *ngFor="let item of todasLasFiestas" >
+                  <td>{{item.fecha}}</td>
+                  <td *ngIf="item.id_salon==1">Cairel</td>
+                  <td *ngIf="item.id_salon==2">Portal Mágico</td>
+                  <td *ngIf="item.id_salon==3">Quinta Cosabonna</td>
+                  <td>{{item.organizador}}</td>
+                  <td><button class="w3-button w3-light-green w3-margin-bottom " (click)="traerDetallesDeEvento(item.fecha,item.id_salon )" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-list"></span> Detalles</button></td>
+                  <td> <button class="w3-button w3-red w3-margin-bottom " (click)="EliminarFiesta(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-remove"></span> Eliminar</button></td>
+                  <td> <button class="w3-button w3-blue w3-margin-bottom " (click)="AgregarInvitado(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-plus"></span> Invitado</button></td>
+                </tr>
+              </tbody>
+            </table>
+          <!--  <button class="w3-button w3-red w3-margin-bottom " (click)="DescargarExcel()" style="font-size:75%;border: 1px solid black; font-weight: 1000" >Descargar a excel</button>
+            <button class="pruebaa" (click)="DescargarPdf()" style="font-size:75%;border: 1px solid black; font-weight: 1000 ;" >Descargar a PDF</button>-->
+         
+          
+            <h2 class="w3-wide  w3-center" style="font-size:100%;">   <button class="w3-button  w3-container " style="font-size:75%;border: 1px solid black; font-weight: 1000"> <img class="pdf" src="/assets/imagenes/pdf.png" (click)="DescargarPdf()" height="55" width="55"></button>   <button class="w3-button  w3-container  " style="font-size:75%;border: 1px solid black; font-weight: 1000"> <img class="pdf" src="/assets/imagenes/descargaExcel.jpg" (click)="DescargarExcel()" height="55" width="55"></button></h2>
+            
+          </div>
+ 
+    </div>
+  </div>
+
+
+  <div class="w3-container w3-content w3-padding-64 " style="max-width:750px;margin-top:-50px; " id="fiestasPorSalon"  >
+      <h2 class="w3-wide  w3-center" style="font-size:100%;color:darkgreen">Fiestas del salon {{salon}}</h2>
+      <br>
+      <div class="" style="max-width:2000px;margin-top:-50px">       
+              <div class="container container w3-container w3-content w3-padding-64" style="max-width:750px;">
+                 
+              <table class="table w3-container w3-content  w3-padding-64  " style="max-width:750px;margin-top:-20px;font-size:70%; ">
+                <thead class="thead-dark" style="color:darkgreen">
+                  <tr>
+                    <th scope="col">FECHA</th>
+                    <th scope="col">SALON</th>
+                    <th scope="col">ORGANIZADOR</th>
+                    <th scope="col">ACCIÓN</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of fiestasPorSalon" style="color:darkgreen">
+                    <td>{{item.fecha}}</td>
+                    <td *ngIf="item.id_salon==1">Cairel</td>
+                    <td *ngIf="item.id_salon==2">Portal Mágico</td>
+                    <td *ngIf="item.id_salon==3">Quinta Cosabonna</td>
+                    <td>{{item.organizador}}</td>
+                    <td><button class="w3-button w3-light-green w3-margin-bottom " (click)="traerDetallesDeEvento2(item.fecha,item.id_salon )" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-list"></span> Ver detalles</button></td>
+                    <td> <button class="w3-button w3-red w3-margin-bottom " (click)="EliminarFiestaPorSalon(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-remove"></span> Eliminar fiesta</button></td>
+                    <td> <button class="w3-button w3-blue w3-margin-bottom " (click)="AgregarInvitado(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-plus"></span> Invitado</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            <!--  <button class="w3-button w3-red w3-margin-bottom " (click)="DescargarExcel()" style="font-size:75%;border: 1px solid black; font-weight: 1000" >Descargar a excel</button>
+              <button class="pruebaa" (click)="DescargarPdf()" style="font-size:75%;border: 1px solid black; font-weight: 1000 ;" >Descargar a PDF</button>-->
+           
+           
+              <h2 class="w3-wide  w3-center" style="font-size:100%;">   <button class="w3-button  w3-container " style="font-size:75%;border: 1px solid black; font-weight: 1000"> <img class="pdf" src="/assets/imagenes/pdf.png" (click)="DescargarPdfPorSalon()" height="55" width="55"></button>   <button class="w3-button  w3-container  " style="font-size:75%;border: 1px solid black; font-weight: 1000"> <img class="pdf" src="/assets/imagenes/descargaExcel.jpg" (click)="DescargarExcelPorSalon()" height="55" width="55"></button></h2>
+              
+            </div>
+   
+      </div>
+    </div>
+
+
+
+  <div class="w3-container w3-content w3-padding-64 " style="max-width:650px;margin-top:-50px; " id="detallesDeEvento"  >
+      <a (click)="Volver()" class=" w3-button w3-margin-bottom " style="font-size:70%;border: 2px solid black; font-weight: 1000;color:black;" ><i class=" fa fa-mail-reply"></i>Volver</a>
+  <br>
+      <h2 class="w3-wide  w3-center" style="font-size:100%;">Fecha: {{fecha}}</h2>
+    <h2 class="w3-wide  w3-center" style="font-size:100%;">Salón: {{salon}}</h2>
+    <br>
+    <div class="" style="max-width:2000px;margin-top:-50px">       
+            <div class="container container w3-container w3-content w3-padding-64" style="max-width:650px;">
+               
+            <table class="table w3-container w3-content  w3-padding-64  " style="max-width:650px;margin-top:-20px;font-size:70%; ">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">INVITADO</th>
+                  <th scope="col">MESA</th>
+                  <th scope="col">DNI</th>
+                  <th scope="col">ACCIÓN</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of detallesEvento">
+                 <td>{{item.persona}}</td>
+                  <td class="w3-center">{{item.id_mesa}}</td>
+                  <td>{{item.dni_invitado}}</td>
+                  <td><button class="w3-button w3-light-green w3-margin-bottom " (click)="ModificarEvento(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-pencil"></span> Modificar</button>
+                  <button class="w3-button w3-red w3-margin-bottom " (click)="EliminarRegistro(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-remove"></span> Eliminar</button></td>
+
+                </tr>
+              </tbody>
+            </table>
+           
+        </div>
+ 
+    </div>
+  </div>
+
+
+  <div class="w3-container w3-content w3-padding-64 " style="max-width:650px;margin-top:-50px; " id="detallesDeEventoDeUnSalon"  >
+      <a (click)="VolverAlSalon()" class=" w3-button w3-margin-bottom " style="font-size:70%;border: 2px solid black; font-weight: 1000;color:black;" ><i class=" fa fa-mail-reply"></i>Volver</a>
+  <br>
+      <h2 class="w3-wide  w3-center" style="font-size:100%;">Fecha: {{fecha}}</h2>
+    <h2 class="w3-wide  w3-center" style="font-size:100%;">Salón: {{salon}}</h2>
+    <br>
+    <div class="" style="max-width:2000px;margin-top:-50px">       
+            <div class="container container w3-container w3-content w3-padding-64" style="max-width:650px;">
+               
+            <table class="table w3-container w3-content  w3-padding-64  " style="max-width:650px;margin-top:-20px;font-size:70%; ">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">INVITADO</th>
+                  <th scope="col">MESA</th>
+                  <th scope="col">DNI</th>
+                  <th scope="col">ACCIÓN</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of detallesEvento">
+                 <td>{{item.persona}}</td>
+                  <td class="w3-center">{{item.id_mesa}}</td>
+                  <td>{{item.dni_invitado}}</td>
+                  <td><button class="w3-button w3-light-green w3-margin-bottom " (click)="ModificarEvento(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-pencil"></span> Modificar</button>
+                  <button class="w3-button w3-red w3-margin-bottom " (click)="EliminarRegistro(item)" style="font-size:75%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-remove"></span> Eliminar</button></td>
+
+                </tr>
+              </tbody>
+            </table>
+           
+        </div>
+ 
+    </div>
+  </div>
+
+
+
+  <div id="ticketModal" class="w3-modal "style="width:100%;height:100%;margin-top: -25px;">
+      <div class="w3-modal-content w3-animate-top w3-card-4" >
+        <header class="w3-container w3-teal w3-center w3-padding-20" > 
+          <span onclick="document.getElementById('ticketModal').style.display='none'" 
+         class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
+          <h2 class="w3-wide"><i class="glyphicon glyphicon-pencil"></i> Modificar datos</h2>
+        </header>
+        <div class="w3-container" style="">
+          <label> Nombre invitado:</label>
+          <input class="w3-input w3-border" type="text" [(ngModel)]="invitado" >
+          <br>
+          <label> Numero de mesa:</label>
+          <select style="background-color:lightgreen" [(ngModel)]="id_mesa" >
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>     
+            <br>   
+          <p><label> DNI:</label></p>
+          <input class="w3-input w3-border" type="text" [(ngModel)]="dni" >
+          <button class="w3-button w3-block w3-teal w3-padding-6 w3-section w3-right" (click)="EnviarModificacion()">Listo <i class="fa fa-check"></i></button>
+          <button class="w3-button w3-red w3-section w3-content w3-center " onclick="document.getElementById('ticketModal').style.display='none'">Cerrar <i class="fa fa-remove"></i></button>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="altainvitado" class="w3-modal "style="width:100%;height:100%;margin-top: -25px;">
+        <div class="w3-modal-content w3-animate-top w3-card-4" >
+          <header class="w3-container w3-teal w3-center w3-padding-20" > 
+            <span onclick="document.getElementById('altainvitado').style.display='none'" 
+           class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
+            <h2 class="w3-wide"><i class="glyphicon glyphicon-plus"></i> Agregar invitado</h2>
+          </header>
+          <div class="w3-container" style="">
+            <label> Nombre invitado:</label>
+            <input class="w3-input w3-border" type="text" [(ngModel)]="invitado" >
+            <br>
+            <label> Numero de mesa:</label>
+            <select style="background-color:lightgreen" [(ngModel)]="id_mesa" *ngIf="this.id_salon==1" >
+                <option >1</option>
+                <option >2</option>
+                <option >3</option>
+                <option >4</option>
+                <option >5</option>
+                <option >6</option>
+                <option >7</option>
+                <option >8</option>
+                <option >9</option>
+                <option >10</option>
+              </select>   
+              <select style="background-color:lightgreen" [(ngModel)]="id_mesa"*ngIf="this.id_salon==2" >
+                  <option >1</option>
+                  <option >2</option>
+                  <option >3</option>
+                  <option >4</option>
+                  <option >5</option>
+                </select>  
+                <select style="background-color:lightgreen" [(ngModel)]="id_mesa"*ngIf="this.id_salon==3" >
+                    <option >1</option>
+                    <option >2</option>
+                    <option >3</option>
+                    <option >4</option>
+                    <option >5</option>
+                    <option >6</option>
+                    <option >7</option>
+                    <option >8</option>
+                    <option >9</option>
+                    <option >10</option>
+                    <option >11</option>
+                    <option >12</option>
+                    <option >13</option>
+                    <option >14</option>
+                    <option >15</option>
+                    <option >16</option>
+                    <option >17</option>
+                    <option >18</option>
+                    <option >19</option>
+                    <option >20</option>
+                  </select>  
+           
+              <br>   
+            <p><label> DNI:</label></p>
+            <input class="w3-input w3-border" type="text" [(ngModel)]="dni" >
+            <button class="w3-button w3-block w3-teal w3-padding-6 w3-section w3-right" (click)="EnviarNuevoInvitado()">Listo <i class="fa fa-check"></i></button>
+            <button class="w3-button w3-red w3-section w3-content w3-center " onclick="document.getElementById('altainvitado').style.display='none'">Cerrar <i class="fa fa-remove"></i></button>
+  
+          </div>
+        </div>
+      </div>
+
+
+    <br>
+    <br>
+   
+<!-- End Page Content -->
+</div>
+<!-- Add Google Maps -->
+
+
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-black w3-xlarge">
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+
+
+
+</body>
+</html>

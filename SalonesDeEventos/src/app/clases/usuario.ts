@@ -3,5 +3,5 @@ export class Usuario {
     usuario: string ="";
     clave:string="";
     correo:string="";
-   
+    dni:Number=0;
 }

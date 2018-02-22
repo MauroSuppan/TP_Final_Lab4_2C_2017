@@ -19,29 +19,38 @@ body {font-family: "Lato", sans-serif}
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="/Inicio#fotos" class="w3-bar-item w3-button w3-padding-large">INICIO</a>
-    <a href="/Inicio#cairel" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SALON CAIREL</a>
-    <a href="/Inicio#portal" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SALON PORTAL MÁGICO</a>
-    <a href="/Inicio#quinta" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SALON QUINTA CASABONNA</a>
-    <a href="/Inicio#contacto" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACTO</a>
-    <div class="w3-dropdown-hover w3-hide-small">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" (click)="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a routerLink="/Inicio" class="w3-bar-item w3-button w3-padding-large">INICIO</a>
+   <!-- <a routerLink="/Inicio#cairel" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SALON CAIREL</a>
+    <a routerLink="/Inicio#portal" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SALON PORTAL MÁGICO</a>
+    <a routerLink="/Inicio#quinta" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SALON QUINTA CASABONNA</a>
+    <a routerLink="/Inicio#contacto" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACTO</a>-->
+    <a routerLink="/Reservas" class="w3-bar-item w3-button w3-padding-large w3-hide-small">VER MIS RESERVAS</a>
+    <a routerLink="/Invitaciones" class="w3-bar-item w3-button w3-padding-large w3-hide-small">VER MIS INVITACIONES</a>
+   <!--  <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="More">MAS <i class="fa fa-caret-down"></i></button>     
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="/Reservas" class="w3-bar-item w3-button">Mis reservas</a>
+        <a routerLink="/Reservas" class="w3-bar-item w3-button">Mis reservas</a>
+        <a routerLink="/Invitaciones" class="w3-bar-item w3-button">Mis invitaciones</a>
       </div>
-    </div>
-    <a href="/Login" class="w3-padding-large w3-hover-green w3-hide-small w3-right" *ngIf="usuario==null || usuario ==''"><i class=" 	fa fa-user"></i>INICIAR SESION</a>
+    </div>-->
+    <a routerLink="/Login" class="w3-padding-large w3-hover-green w3-hide-small w3-right" *ngIf="usuario==null || usuario ==''"><i class=" 	fa fa-user"></i>INICIAR SESION</a>
     <a (click)="cerrarSesion()" class="w3-padding-large w3-hover-red w3-hide-small w3-right" *ngIf="usuario!=null"><i class=" 	fa fa-user"></i>CERRAR SESION</a>
   </div>
 </div>
 
 <!-- Navbar on small screens -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#band" class="w3-bar-item w3-button w3-padding-large">BAND</a>
-  <a href="#tour" class="w3-bar-item w3-button w3-padding-large">TOUR</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large">CONTACT</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large">MERCH</a>
+ <!-- <a href="/Inicio#cairel" class="w3-bar-item w3-button w3-padding-large">SALON CAIREL</a>
+  <a href="/Inicio#portal" class="w3-bar-item w3-button w3-padding-large">SALON PORTAL MÁGICO</a>
+  <a href="/Inicio#quinta" class="w3-bar-item w3-button w3-padding-large">SALON QUINTA CASABONNA</a>
+  <a href="/Reservas" class="w3-bar-item w3-button w3-padding-large">MIS RESERVAS</a>
+  <a href="/Invitaciones" class="w3-bar-item w3-button w3-padding-large">MIS INVITACIONES</a>
+  <a href="/Inicio#contacto" class="w3-bar-item w3-button w3-padding-large">CONTACTO</a> -->
+  <a routerLink="/Reservas" class="w3-bar-item w3-button w3-padding-large">MIS RESERVAS</a>
+  <a routerLink="/Invitaciones" class="w3-bar-item w3-button w3-padding-large">MIS INVITACIONES</a>
+  <a routerLink="/Login" class="w3-bar-item w3-button w3-padding-large" *ngIf="usuario==null || usuario ==''"><i class=" 	fa fa-user"></i>INICIAR SESION</a>
+  <a (click)="cerrarSesion()" class="w3-bar-item w3-button w3-padding-large" *ngIf="usuario!=null"><i class=" 	fa fa-user"></i>CERRAR SESION</a>
 </div>
 
 <!-- Page content -->

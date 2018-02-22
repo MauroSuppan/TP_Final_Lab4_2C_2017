@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
+<body class="fondo">
+
+    <div id='spinner' class="w3-content w3-center" style="">
+        <br><br>  <br> <br><br><br> <br><br>
+          <img src="/assets/imagenes/spinner.gif" style="height:200px; width:200px;">
+          <br><br>  <br> <br><br><br> <br><br>
+        </div> 
+
+<!-- Navbar -->
+<div class="w3-top" >
+  <div class="w3-bar w3-black w3-card">
+
+    <a routerLink="/Inicio" class="w3-bar-item w3-button w3-padding-large">INICIO</a>
+    
+    <a (click)="cerrarSesion()" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class=" 	fa fa-user"></i>CERRAR SESION</a>
+  </div>
+</div>
+
+
+
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="#band" class="w3-bar-item w3-button w3-padding-large">BAND</a>
+  <a href="#tour" class="w3-bar-item w3-button w3-padding-large">TOUR</a>
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large">CONTACT</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">MERCH</a>
+</div>
+
+<!-- Page content -->
+<div class="w3-content animated flipInX miItem " style="max-width:2000px;margin-top:46px" id="pagina">
+
+
+    <div class="container w3-container w3-content w3-padding-64" style="max-width:650px">
+        <div class="w3-container w3-content w3-center w3-padding-64 " style="max-width:800px" id="band"  >
+            <h3 class="w3-wide ">Aquí puede observar los detalles de sus invitaciones.</h3>
+        </div>
+
+     <table class="table w3-container w3-content  w3-padding-64  " style="max-width:650px;margin-top:-20px; ">
+       <thead class="thead-dark">
+         <tr>
+           <th scope="col">FECHA</th>
+           <th scope="col">SALON</th>
+           <th scope="col">MESA</th>
+           <th scope="col">MAPA</th>
+
+         </tr>
+       </thead>
+       <tbody>
+         <tr *ngFor="let item of reservas">
+           <td>{{item.fecha}}</td>
+           <td *ngIf="item.id_salon==1">Cairel</td>
+           <td *ngIf="item.id_salon==2">Portal Mágico</td>
+           <td *ngIf="item.id_salon==3">Quinta Cosabonna</td>
+           <td class="w3-center">{{item.id_mesa}}</td>
+           <td><button class="w3-button w3-light-green w3-margin-bottom " (click)="redireccionarMapa(item)" style="font-size:85%;border: 1px solid black; font-weight: 1000" ><span class="glyphicon glyphicon-globe"></span> Como llego?</button></td>
+         </tr>
+       </tbody>
+     </table>
+ 
+ </div>
+
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<!-- End Page Content -->
+</div>
+<!-- Add Google Maps -->
+
+
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+
+
+
+</body>
+</html>

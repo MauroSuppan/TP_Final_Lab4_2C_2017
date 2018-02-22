@@ -1,28 +1,108 @@
-<div id="id01" class="modal">
+
+
+<!DOCTYPE html>
+<html>
+
+
+<body >
+<div id="id012" class="modal">
   <span  routerLink="/Login" class="close" title="Close Modal">×</span>
-  <form class="modal-content animate" >
+  <form class="modal-content animate" [formGroup]="formRegistro" >
     <div class="container">
 
         <label><b>Nombre</b></label>
-        <input type="text" placeholder="Ingrese nombre" [(ngModel)]="nombre" name="nombre" required>
-
+        <input type="text" placeholder="Ingrese nombre"  name="nombre" [formControl]="nombre" required>
+        <div *ngIf="nombre.valid" class="alert alert-success" style="background-color:lightBlue; max-width:120px;" >
+            Nombre válido.
+          </div>
+          <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched) "
+          class="alert alert-danger"  style="background-color:red; max-width:170px;">
+            <div *ngIf="nombre.errors.required">
+               El nombre es requerido.
+             </div>
+          </div>
+ 
       <label><b>Usuario</b></label>
-      <input type="text" placeholder="Ingrese usuario" [(ngModel)]="usuario" name="usuario" required>
+      <input type="text" placeholder="Ingrese usuario" [formControl]="usuario" name="usuario" required>
+      <div *ngIf="usuario.valid" class="alert alert-success" style="background-color:lightBlue; max-width:120px;">
+          Usuario válido.
+        </div>
+        <div *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)"
+        class="alert alert-danger" style="background-color:red; max-width:170px;">
+          <div *ngIf="usuario.errors.required">
+             El usuario es requerido.
+           </div>
+        </div>
 
       <label><b>Correo</b></label>
-      <input type="text" placeholder="Ingrese correo" [(ngModel)]="correo" name="correo" required>
+      <input type="text" placeholder="Ingrese correo" [formControl]="correo" name="correo" required>
+      <div *ngIf="correo.valid" class="alert alert-success" style="background-color:lightBlue; max-width:120px;">
+          Correo válido.
+        </div>
+        <div *ngIf="correo.invalid && (correo.dirty || correo.touched)"
+        class="alert alert-danger" style="background-color:red; max-width:300px;">
+          <div *ngIf="correo.errors.required" style="background-color:red; max-width:150px;">
+             El correo es requerido.
+           </div>
+           <div *ngIf="correo.errors.email" style="background-color:red; max-width:230px;">
+              Debe ser de formato fulanito@algo
+            </div>
+        </div>
+
+        <label><b>DNI</b></label>
+        <input type="text" class="form-control" placeholder="DNI" name="dni" [formControl]="dni" required>
+        <div *ngIf="dni.valid" class="alert alert-success" style="background-color:lightBlue; max-width:120px;">
+            DNI válido.
+          </div>
+          <div *ngIf="dni.invalid && (dni.dirty || dni.touched)"
+          class="alert alert-danger">
+            <div *ngIf="dni.errors.required" style="background-color:red; max-width:170px;">
+               El DNI es requerido.
+             </div>
+             <div *ngIf="dni.errors.minlength" style="background-color:red; max-width:170px;">
+                El DNI debe tener 8 digitos.
+              </div>
+              <div *ngIf="dni.errors.maxlength" style="background-color:red; max-width:170px;">
+                  El DNI debe tener 8 digitos.
+               </div>
+          </div>
 
       <label><b>Clave</b></label>
-      <input type="password" placeholder="Ingrese clave" [(ngModel)]="clave" name="psw" required>
+      <input type="password" placeholder="Ingrese clave" [formControl]="clave" name="clave" required>
+      <div *ngIf="clave.valid" class="alert alert-success" style="background-color:lightBlue; max-width:110px;">
+          Clave válida.
+        </div>
+        <div *ngIf="clave.invalid && (clave.dirty || clave.touched)"
+        class="alert alert-danger" style="background-color:red; max-width:170px;">
+          <div *ngIf="clave.errors.required">
+             La clave es requerido.
+           </div>
+        </div>
 
       <label><b>Repita la clave</b></label>
-      <input type="password" placeholder="Repita la misma clave que arriba" [(ngModel)]="claveRep" name="psw-repeat" required>
-      
+      <input type="password" placeholder="Repita la misma clave que arriba" [formControl]="claveRep" name="claveRep" required>
+      <div *ngIf="claveRep.valid" class="alert alert-success" style="background-color:lightBlue; max-width:150px;">
+          Clave repetida válida.
+        </div>
+        <div *ngIf="claveRep.invalid && (claveRep.dirty || claveRep.touched)"
+        class="alert alert-danger" style="background-color:red; max-width:170px;">
+          <div *ngIf="claveRep.errors.required">
+             La clave repetida es requerida.
+           </div>
+        </div>
+      <re-captcha (resolved)="resolved($event)" siteKey="6Le2o0YUAAAAAGC6YhAX13iHCcidNosZ6J06DxmN" name="registroCaptcha"
+      [formControl]="registroCaptcha"
+      ></re-captcha>
 
       <div class="clearfix">
         <button type="button"  routerLink="/Login" class="cancelbtn">Me arrepenti</button>
-        <button type="button" (click)="Registrar()" class="signupbtn">Registrarme</button>
+        <button type="button"  [disabled]="!formRegistro.valid" (click)="Registrar()" class="signupbtn">Registrarme</button>
       </div>
     </div>
   </form>
 </div>
+
+
+</body>
+</html>
+

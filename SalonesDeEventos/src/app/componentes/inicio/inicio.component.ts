@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { SweetAlertService } from 'angular-sweetalert-service';
 
 @Component({
   selector: 'app-inicio',
@@ -14,7 +15,7 @@ export class InicioComponent implements OnInit {
 
  
   
-  constructor(private router: Router) {
+  constructor(private router: Router,public alertService: SweetAlertService) {
     this.Tiempo=5; 
     this.usuario=localStorage.getItem("usuario");
     
@@ -116,13 +117,36 @@ export class InicioComponent implements OnInit {
   {
     this.usuario=null;
     localStorage.clear();
-    alert("usted se ha deslogueado correctamente");
+    const exito = {
+      title: 'Exito!',
+      text: "usted se ha deslogueado correctamente",
+      type: 'success',
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'Listo'
+    };
+    this.alertService.success(exito);
     this.router.navigateByUrl("/Inicio");
   }
 
 
+  /*ngOnDestroy()
+  {
+    this.sub.unsubscribe();
+  }  
+*/
 
+myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+  } else { 
+      x.className = x.className.replace(" w3-show", "");
+  }
+}
 
-
+navbar(parametro)
+{
+  this.router.navigateByUrl(parametro);
+}
 
 }

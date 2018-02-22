@@ -11,42 +11,50 @@
     
     <div class="container">
         <div class="row">
+            <br> <br> <br> <br>
             <div class="col-md-12">
-                <div class="pr-wrap">
-                    <div class="pass-reset">
-                        <label>
-                            Enter the email you signed up with</label>
-                        <input type="email" placeholder="Email" />
-                        <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
-                    </div>
-                </div>
-                <div class="wrap">
-                    <p class="form-title">
+       
+                  <div  >
+                        
+                <div class="wrap" >
+                    <p class="form-title" style="font-size:60px;">   
                         Iniciar Sesión</p>
                     <form class="login">
-                    <input type="text" placeholder="Username" [(ngModel)]="usuario" [ngModelOptions]="{standalone: true}" />
-                    <input type="password" placeholder="Password" [(ngModel)]="clave" [ngModelOptions]="{standalone: true}" />
-                    <input type="button" (click)=logearse()  value="Ingresar" class="btn btn-success btn-sm" />
+                    <input type="text" placeholder="Usuario" [(ngModel)]="usuario" [ngModelOptions]="{standalone: true}" />
+                    <input type="password" placeholder="Contraseña" [(ngModel)]="clave" [ngModelOptions]="{standalone: true}" />
+                    <input type="button" (click)=logearse()  value="Ingresar" class="btn btn-success btn-sm" style="height:40px;" />
                     <div class="remember-forgot">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" />
-                                        Remember Me
+                                        <input type="checkbox"  />
+                                        Recordarme
                                     </label>
                                 </div>
                             </div>
                             <div class="col-md-6 forgot-pass-content">
-                                <button routerLink="/Registro" class="forgot-pass">Registrase</button>
+                                <button routerLink="/Registro" class="btn btn-info" style="height:32px;" >Registrarse</button>
+                            
+                              
                             </div>
                         </div>
+                        <br> 
                     </div>
+                    
+                    <button type="button" (click)="loguearseComo('Cliente')" class="btn btn-primary btn-sm">Cliente</button>
+                    <button type="button" (click)="loguearseComo('Encargado')" class="btn btn-primary btn-sm">Encargado</button>
+                    <button type="button" (click)="loguearseComo('Empleado')" class="btn btn-primary btn-sm">Empleado</button>
                     </form>
+ 
                 </div>
+
             </div>
+
+            </div>
+            
         </div>
-        <div class="posted-by">Posted By: <a href="http://www.jquery2dotnet.com">Bhaumik Patel</a></div>
+        <div class="posted-by">Pagina desarrollada por <a href="https://github.com/MauroSuppan">Mauro Suppan</a></div>
     </div>
     
   <br>
